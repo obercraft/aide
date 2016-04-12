@@ -1,0 +1,67 @@
+body {
+	padding-top: 70px;
+}
+
+.WarningOn {
+	color: black;
+	background: yellow;
+	font-weight: bold;
+	font-style: normal;
+}
+
+.WarningOff {
+	color: black;
+	background: #ffffb2;
+	font-style: italic;
+}
+
+.SoundOff {
+	color: black;
+	background: #ff6666;
+	font-style: italic;
+}
+
+.SoundOn {
+	color: black;
+	background: red;
+	font-style: normal;
+	font-weight: bold;
+}
+
+.LocationOn {
+	color: black;
+	background: #FFA500;
+	font-weight: bold;
+	font-style: normal;
+}
+
+.LocationOff {
+	color: black;
+	background: #ffc966;
+	font-style: italic;
+}
+
+.DwellingOff {
+	background: #66a997;
+	color: black;
+	font-style: italic;
+}
+
+.DwellingOn {
+	color: black;
+	background: #007053;
+	font-weight: bold;
+	font-style: normal;
+}
+
+.chit {
+	padding: 2px;
+	margin: 2px;
+	border: 1px solid #000000;
+	width: 100px;
+	overflow: hidden;
+}
+
+.cursor {
+	cursor: pointer;
+}

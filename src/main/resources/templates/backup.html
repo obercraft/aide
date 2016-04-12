@@ -1,0 +1,61 @@
+
+<div class="container" ng-controller="chartCtrl">
+
+	<div class="row"
+		ng-repeat="t in ['Warning', 'Sound', 'Location', 'Dwelling']">
+		<div ng-click="chitSelect(chit)" style="text-align: center;"
+			class="col-md-1 {{chit.type}} chit" ng-repeat="chit in chitType[t]">
+			<div>{{chit.name}}</div>
+			<div>{{chit.position}}</div>
+			<div ng-if="chit.replace">{{chit.replace}}</div>
+			<div>{{chit.selected}}</div>
+		</div>
+	</div>
+
+	<hr />
+
+	<div ng-repeat="(name,denizen) in denizens">
+		<div>{{name}}</div>
+		<div>{{denizen}}</div>
+	</div>
+
+
+	<hr />
+
+	<div ng-if="denizens.length > 0" class="row"
+		ng-repeat="denizens in monsterResult">
+		<div class="col-md-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h1 class="panel-title">{{$index + 1}}</h1>
+				</div>
+				<div class="panel-body">
+
+
+					<div class="col-md-3" ng-repeat="denizen in denizens">
+
+						<div ng-if="denizen.chits.length > 0">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div>
+										<div style="float: left;" class="chit {{getChitClass(chit)}}"
+											ng-repeat="chit in denizen.chits">
+											<nobr>{{chit}}</nobr>
+										</div>
+										<div style="clear: both;"></div>
+									</div>
+									<span ng-if="denizen.count > 1">{{denizen.count}}</span>
+									{{denizen.denizen}}
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+

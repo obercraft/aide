@@ -1,0 +1,66 @@
+<aide-breadcrumb data="denizen.breadcrumb"></aide-breadcrumb>
+
+<div class="panel panel-info"
+	ng-repeat="d in denizen.data.denizens[denizen.id]">
+	<div class="panel-heading">
+		<h1 class="panel-title">{{denizen.id}} {{d.id}}</h1>
+	</div>
+	<div class="panel-body">
+
+		<table class="table table-bordered table-condensed">
+			<thead>
+				<tr>
+					<th>SIZE</th>
+					<th>FAME</th>
+					<th>NOTORIETY</th>
+					<th>GOLD</th>
+					<th>Notes</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>{{d.size}}</td>
+					<td>{{d.f}}</td>
+					<td>{{d.n}}</td>
+					<td>{{d.g}}</td>
+					<td><span class="label label-info" ng-if="d.armored">Armored</span>
+						<span class="label label-info" ng-if="d.flies">Flying</span></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table class="table table-bordered table-condensed">
+			<thead>
+				<tr>
+					<th>Attack</th>
+					<th>Move</th>
+					<th>Length</th>
+					<th>Notes</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="{{pClass}}"
+					ng-init="pClass= side.indexOf('ack') >0 ? 'danger':'default'"
+					ng-repeat="side in ['front','back','headFront','headBack','clubFront','clubBack','horseFront','horseBack']"
+					ng-if="d[side]">
+					<td><span ng-if="d[side].attack > 0"> <span
+							ng-if="d[side].damage == 'R'" class="badge">{{d[side].attack}}</span>
+							<span ng-if="d[side].damage != 'R'">{{d[side].damage}}{{d[side].attack}}{{d[side].stars}}</span>
+							<span ng-if="d[side].type != 'Stats'">({{d[side].type}})</span>
+					</span></td>
+					<td><span ng-if="d[side].defense > 0">
+							{{d[side].strength}}{{d[side].defense}} </span> <span
+						ng-if="d[side].strength"> ({{d[side].type}}) </span></td>
+					<td>{{d[side].length}}</td>
+					<td><span ng-if="d[side].table != 'strike'">{{d[side].table}}</span>
+						<span ng-if="d[side].defense < 0">cannot be attacked</span> <span
+						ng-if="d[side].attack < 0">cannot attack</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</div>
+
+<aide-comments subject="denizen.id"></aide-messages>

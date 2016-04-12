@@ -1,0 +1,11 @@
+comments {{category}}
+{{comments}}
+<hr>
+<div ng-show="auth">
+<textarea ng-model="text">
+</textarea>
+<button ng-click="createComment(text)">save</button>
+</div>
+<div ng-show="!auth">
+	<a href="/aide/login">Login for comment</a>
+</div>

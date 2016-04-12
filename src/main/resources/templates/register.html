@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="/css/bootstrap.min.css"></link>
+<link rel="stylesheet" href="/css/aide.css"></link>
+<script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="/webjars/angularjs/1.4.9/angular.min.js"></script>
+<script src="/webjars/angular-new-router/0.5.3/dist/router.es5.min.js"></script>
+<script src="/js/aide.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-default  navbar-fixed-top" th:include="menu :: main"></nav>
+    <form action="#" th:action="@{/login/register}" th:object="${register}" method="post">    	
+        <p>Name: <input type="text" th:field="*{name}" /></p>
+        <p>Email: <input type="text" th:field="*{email}" /></p>
+        <p>Password: <input type="text" th:field="*{password}" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>
