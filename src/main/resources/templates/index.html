@@ -7,6 +7,7 @@
 <script src="/webjars/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <script src="/webjars/angularjs/1.4.9/angular.min.js"></script>
 <script src="/webjars/angular-new-router/0.5.3/dist/router.es5.min.js"></script>
+<script src="/js/aideInit.js"></script>
 <script src="/js/aide.js"></script>
 </head>
 <body ng-app="aideApp">
@@ -20,7 +21,8 @@
 <script th:inline="javascript">
 /*<![CDATA[*/
 	angular.module('aideContant',[]).constant('status', {
-		auth: [[${auth}]]
+		auth: [[${auth}]],
+		version: [[${applicationVersion}]]
 	});
 
 /*]]>*/

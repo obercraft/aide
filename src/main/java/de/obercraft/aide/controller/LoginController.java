@@ -16,11 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import de.obercraft.aide.component.AuthorityRepository;
 import de.obercraft.aide.component.UserRepository;
-import de.obercraft.aide.component.UserSecretRepository;
 import de.obercraft.aide.dto.Authority;
 import de.obercraft.aide.dto.Register;
 import de.obercraft.aide.dto.User;
-import de.obercraft.aide.dto.UserSecret;
+
 
 @Controller
 @RequestMapping("/aide/login")
@@ -36,11 +35,11 @@ public class LoginController {
 	private UserRepository userRepository;
 	
 	@Resource
-	private UserSecretRepository userSecretRepository;
-	
-	@Resource
 	private AuthorityRepository authorityRepository;
 	
+	@Resource
+	private UserRepository UserRepository;
+		
 	@RequestMapping(method= RequestMethod.GET)
 	public String getIndex(Model model) {		
 		model.addAttribute("applicationName", name);
@@ -59,24 +58,19 @@ public class LoginController {
 	@RequestMapping(value = "register", method= RequestMethod.POST)
 	public String postRegister(@ModelAttribute ("register") Register register,Model model) {		
 		PasswordEncoder encoder = new BCryptPasswordEncoder();	
-		UserSecret userSecret = new UserSecret();
-		userSecret.setEmail(register.getEmail());
-		userSecret.setPassword(encoder.encode(register.getPassword()));
-		
 		User user = new User();
+		user.setEmail(register.getEmail());
+		user.setPassword(encoder.encode(register.getPassword()));
+		
 		user.setName(register.getName());
 		
-		User result = userRepository.save(user);
+		user = userRepository.save(user);
 		
-		userSecret.setUser(result);		
-		UserSecret secretResult = userSecretRepository.save(userSecret);
 		Authority authority = new Authority();
 		authority.setName("USER");
-		authority.setUserSecret(secretResult);
+		authority.setUser(user);
 		
 		authorityRepository.save(authority);
-		
-		
 		return "registerSuccess";
 	}
 

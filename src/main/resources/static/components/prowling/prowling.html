@@ -1,0 +1,52 @@
+<aide-breadcrumb data="prowling.breadcrumb"></aide-breadcrumb>
+
+<div class="row" ng-repeat="t in ['Warning', 'Sound', 'Location', 'Dwelling']">
+	<div class="col-md-12">
+		<div ng-if="!chit.replace" ng-click="data.chitSelect(chit)"
+			style="float: left; text-align: center;"
+			class="cursor {{chit.type}}{{chit.selected ? 'On':'Off'}} chit"
+			ng-repeat="chit in data.chitType[t]">
+			<div style="vertical-align: middle;">		
+				<div>{{chit.name}}</div>		
+				{{t == 'Dwelling' ? '' : chit.position}}
+			</div>
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+</div>
+
+<div ng-if="denizens.length > 0" class="row"
+	ng-repeat="denizens in data.monsterResult">
+	<div class="col-md-12">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h1 class="panel-title">{{$index + 1}}</h1>
+			</div>
+			<div class="panel-body">
+
+
+				<div class="col-md-3" ng-repeat="denizen in denizens">
+
+					<div ng-if="denizen.chits.length > 0">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<div>
+									<span ng-repeat="chit in denizen.chits"> {{chit}}{{$last
+										? '' : ', '}} </span>
+								</div>
+								<span ng-if="denizen.count > 1">{{denizen.count}}</span> <a
+									ng-link="denizen({id : denizen.denizen})">{{denizen.denizen}}</a>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</div>
+
+<aide-comments subject="'prowling'"></aide-messages>

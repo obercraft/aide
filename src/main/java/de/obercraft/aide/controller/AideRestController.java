@@ -4,7 +4,6 @@ package de.obercraft.aide.controller;
 import java.util.Date;
 
 import javax.annotation.Resource;
-import javax.annotation.security.RolesAllowed;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -17,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import de.obercraft.aide.component.CommentRepository;
 import de.obercraft.aide.component.DisplayChart;
-import de.obercraft.aide.component.UserSecretRepository;
+import de.obercraft.aide.component.UserRepository;
 import de.obercraft.aide.dto.AideUserDetails;
 import de.obercraft.aide.dto.Comment;
 
@@ -32,9 +31,9 @@ public class AideRestController {
 	private CommentRepository commentRepository;
 	
 	@Resource
-	private UserSecretRepository userSecretRepository;
+	private UserRepository userRepository;
 	
-	@RequestMapping(value="/display", method = RequestMethod.GET)
+	@RequestMapping(value="/data", method = RequestMethod.GET)
 	@ResponseBody
 	public Object getDisplay() {		
 		return displayChart.getData();
@@ -43,7 +42,7 @@ public class AideRestController {
 	@RequestMapping(value="/test", method = RequestMethod.GET)
 	@ResponseBody
 	public Object getTest() {		
-		return userSecretRepository.findAll();
+		return userRepository.findAll();
 	}
 	
 	@RequestMapping(value="/comments/{subject}", method = RequestMethod.GET)

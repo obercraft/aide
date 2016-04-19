@@ -1,50 +1,33 @@
 <aide-breadcrumb data="home.breadcrumb"></aide-breadcrumb>
-<div class="row"
-	ng-repeat="t in ['Warning', 'Sound', 'Location', 'Dwelling']">
-	<div ng-if="!chit.replace" ng-click="home.data.chitSelect(chit)"
-		style="float: left; text-align: center;"
-		class="cursor {{chit.type}}{{chit.selected ? 'On':'Off'}} chit"
-		ng-repeat="chit in home.data.chitType[t]">
-		<div>
-			<nobr>{{chit.name}}</nobr>
-		</div>
-		<div>{{chit.position}}{{t == 'Dwelling' ? '&nbsp;':''}}</div>
-	</div>
-	<div style="clear: both;"></div>
-</div>
 
-<div ng-if="denizens.length > 0" class="row"
-	ng-repeat="denizens in home.data.monsterResult">
-	<div class="col-md-12">
-		<div class="panel panel-info">
-			<div class="panel-heading">
-				<h1 class="panel-title">{{$index + 1}}</h1>
-			</div>
-			<div class="panel-body">
-
-
-				<div class="col-md-3" ng-repeat="denizen in denizens">
-
-					<div ng-if="denizen.chits.length > 0">
-						<div class="panel panel-default">
-							<div class="panel-body">
-								<div>
-									<span ng-repeat="chit in denizen.chits"> {{chit}}{{$last
-										? '' : ', '}} </span>
-								</div>
-								<span ng-if="denizen.count > 1">{{denizen.count}}</span> <a
-									ng-link="denizen({id : denizen.denizen})">{{denizen.denizen}}</a>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-</div>
-
-<aide-comments subject="'general'"></aide-messages>
+<span style="font-family: serifa-black-bt;font-size:16px;">
+Welcome to the Magic Realm AIDE
+</span>
+<p>
+As you enter the <i>INN</i>, an old man with a grey beard greets you friendly.
+"My name is Cyred, and I can be your <a href="/"><i>AIDE</i></a> through these mysterious lands."
+</p>
+<p>
+He seems to be an experienced adventurer, so you continue the conversation. "There are many creature <a href="/aide#prowling"><i>PROWLING</i></a> the land", 
+Cyred says, "but I can tell you where you may find them."
+</p>
+<p>
+"Some of these <a href="/aide#denizens"><i>DENIZENS</i></a> are very dangerous," he adds while he raises his old finger, "but each one has weaknesses, too"
+</p>
+<p>
+"Finally I can tell you how to become <a href="/aide#score"><i>FAMOUS</i></a>", he claims. "Are YOU interested? We can embark on our adventure right now..."
+</p>
+<p>
+<i>AIDE</i> is a free toolset for the boardgame <i>Magic Realm</i>, including:
+<ul>
+	<li>Prowling: a tool that shows all monsters that may be summoned in a tile. Just click the chits and monster rows will appear.</li>
+	<li>Denizens: a list of all denizens. Click on a denizen to get details</li> 
+	<li>Score: a tool to calculate the final score. But you may also use it while playing to decide, if it is better to keep or sell an item</li>
+</ul>  
+</p>
+<p>
+You do <b>not</b> need to a <a href="/aide/login"><i>login</i></a> to use the tools. But each page has a comment section, so if you like to add a helpful comment how to defeat a 
+denizen for example, you must <a href="/aide/register"><i>register</i></a> an account.  
+</p>
+<div class="pull-right"><a href="https://github.com/obercraft/aide">{{home.version}}</a></div>
+<aide-comments subject="'home'"></aide-messages>

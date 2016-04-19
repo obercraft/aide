@@ -5,9 +5,12 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Authority implements Serializable {
@@ -15,15 +18,16 @@ public class Authority implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-    @GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     
     @Column(nullable = false)
     private String name;
     
     @ManyToOne
-    private UserSecret userSecret;
-
+    @JsonIgnore
+    private User user;
+    
     public Authority(){
     	super();
     }
@@ -49,14 +53,14 @@ public class Authority implements Serializable {
 		this.name = name;
 	}
 
-	public UserSecret getUserSecret() {
-		return userSecret;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserSecret(UserSecret userSecret) {
-		this.userSecret = userSecret;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	
-    
+	
 }
