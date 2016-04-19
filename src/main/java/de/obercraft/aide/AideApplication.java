@@ -14,17 +14,19 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+
 @SpringBootApplication
 public class AideApplication
 {
 	
-    private final Logger log = LoggerFactory.getLogger(this.getClass());
-    
-    public static void main( String[] args )
-    {
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+              
+    public static void main( String[] args ) {    	    
+ 
     	SpringApplication.run(AideApplication.class, args);
     }
-    
+        
+        
     @Bean
     protected ServletContextListener listener() {
 
@@ -38,14 +40,14 @@ public class AideApplication
             @Override
             public final void contextDestroyed(ServletContextEvent sce) {
 
-                log.info("Destroying Context...");
+                logger.info("Destroying Context...");
 
                 try {
-                    log.info("Calling MySQL AbandonedConnectionCleanupThread shutdown");
+                    logger.info("Calling MySQL AbandonedConnectionCleanupThread shutdown");
                     com.mysql.jdbc.AbandonedConnectionCleanupThread.shutdown();
 
                 } catch (InterruptedException e) {
-                    log.error("Error calling MySQL AbandonedConnectionCleanupThread shutdown {}", e);
+                    logger.error("Error calling MySQL AbandonedConnectionCleanupThread shutdown {}", e);
                 }
 
                 ClassLoader cl = Thread.currentThread().getContextClassLoader();
@@ -57,15 +59,15 @@ public class AideApplication
                     if (driver.getClass().getClassLoader() == cl) {
 
                         try {
-                            log.info("Deregistering JDBC driver {}", driver);
+                            logger.info("Deregistering JDBC driver {}", driver);
                             DriverManager.deregisterDriver(driver);
 
                         } catch (SQLException ex) {
-                            log.error("Error deregistering JDBC driver {}", driver, ex);
+                            logger.error("Error deregistering JDBC driver {}", driver, ex);
                         }
 
                     } else {
-                        log.trace("Not deregistering JDBC driver {} as it does not belong to this webapp's ClassLoader", driver);
+                        logger.trace("Not deregistering JDBC driver {} as it does not belong to this webapp's ClassLoader", driver);
                     }
                 }
             }

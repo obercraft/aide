@@ -1,8 +1,5 @@
 package de.obercraft.aide.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Value;

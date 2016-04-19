@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import de.obercraft.aide.dto.Comment;
 import de.obercraft.aide.dto.User;
 
 public interface UserRepository extends CrudRepository<User, Long> {

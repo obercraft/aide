@@ -1,8 +1,5 @@
 package de.obercraft.aide.controller;
 
-import javax.annotation.security.RolesAllowed;
-
-import org.springframework.core.annotation.AliasFor;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

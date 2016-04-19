@@ -15,5 +15,7 @@ hs_err_pid*
 .project
 .settings
 
+./application.properties
+
 target/
 /target/
