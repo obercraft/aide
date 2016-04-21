@@ -1,6 +1,7 @@
 package de.obercraft.aide.component;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -37,6 +38,9 @@ public class AideUserService implements UserDetailsService {
 		}
 		
 		UserDetails userDetails = new AideUserDetails(user, user.getEmail(), user.getPassword(), ga);		
+		
+		user.setLastLogin(new Date());
+		userRepository.save(user);
 		return userDetails;
 	}
 	

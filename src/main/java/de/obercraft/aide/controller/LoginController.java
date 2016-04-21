@@ -1,5 +1,7 @@
 package de.obercraft.aide.controller;
 
+import java.util.Date;
+
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -58,7 +60,7 @@ public class LoginController {
 		User user = new User();
 		user.setEmail(register.getEmail());
 		user.setPassword(encoder.encode(register.getPassword()));
-		
+		user.setCreated(new Date());
 		user.setName(register.getName());
 		
 		user = userRepository.save(user);
