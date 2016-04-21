@@ -1,0 +1,332 @@
+[
+	[
+		{
+			denizen:"Heavy Flying Dragon",
+			chits:[
+				"Flutter",
+				"Smoke M"
+			],
+			location:"Lost Castle",
+			count:2
+		},
+		{
+			denizen:"Heavy Dragon",
+			chits:[
+				"Smoke C",
+				"Slither",
+				"Roar (C)"
+			],
+			location:"Lost City",
+			count:1
+		},
+		{
+			denizen:"Tremendous Dragon",
+			chits:[
+				"Smoke C",
+				"Slither",
+				"Roar (C)"
+			],
+			location:"Lost City",
+			count:1
+		},
+		{
+			denizen:"Tremendous Flying Dragon",
+			chits:[
+				"Hoard"
+			],
+			location:"Treasure Locations",
+			count:1
+		},
+		{
+			denizen:"Tremendous Dragon",
+			chits:[
+				"Lair"
+			],
+			location:"Treasure Locations",
+			count:1
+		},
+		{
+			denizen:"Company",
+			chits:[
+				"Inn",
+				"Large Campfire"
+			],
+			location:"sings",
+			count:7
+		}
+	],
+	[
+		{
+			denizen:"Viper",
+			chits:[
+				"Dank W"
+			],
+			location:"Lost Castle",
+			count:2
+		},
+		{
+			denizen:"Heavy Serpent",
+			chits:[
+				"Dank C",
+				"Slither"
+			],
+			location:"Lost City",
+			count:1
+		},
+		{
+			denizen:"Tremendous Serpent",
+			chits:[
+				"Dank C",
+				"Slither"
+			],
+			location:"Lost City",
+			count:1
+		},
+		{
+			denizen:"Demon",
+			chits:[
+				"Altar"
+			],
+			location:"Treasure Locations",
+			count:1
+		},
+		{
+			denizen:"Winged Demon",
+			chits:[
+				"Shrine"
+			],
+			location:"Treasure Locations",
+			count:1
+		},
+		{
+			denizen:"Woodfolk",
+			chits:[
+				"House",
+				"Small Campfire"
+			],
+			location:"Treasure Locations",
+			count:3
+		}
+	],
+	[
+		{
+			denizen:"Wolf",
+			chits:[
+				"Ruins W"
+			],
+			location:"Lost Castle",
+			count:2
+		},
+		{
+			denizen:"Ogre",
+			chits:[
+				"Bones W"
+			],
+			location:"Lost City",
+			count:1
+		},
+		{
+			denizen:"Goblin with Axe",
+			chits:[
+				"Ruins C",
+				"Patter (C)",
+				"Howl (C)"
+			],
+			location:"Lost City",
+			count:6
+		},
+		{
+			denizen:"Goblin with Spear",
+			chits:[
+				"Ruins C",
+				"Patter (C)",
+				"Howl (C)"
+			],
+			location:"Lost City",
+			count:6
+		},
+		{
+			denizen:"Goblin with Sword",
+			chits:[
+				"Ruins C",
+				"Patter (C)",
+				"Howl (C)"
+			],
+			location:"Lost City",
+			count:6
+		},
+		{
+			denizen:"Octopus",
+			chits:[
+				"Pool"
+			],
+			location:"Treasure Locations",
+			count:1
+		},
+		{
+			denizen:"Patrol",
+			chits:[
+				"Inn",
+				"Chapel",
+				"House",
+				"Guard House"
+			],
+			location:"Dwellings",
+			count:3
+		}
+	],
+	[
+		{
+			denizen:"Giant",
+			chits:[
+				"Bones M",
+				"Roar (M)",
+				"Stink (M)"
+			],
+			location:"Lost Castle",
+			count:1
+		},
+		{
+			denizen:"Giant",
+			chits:[
+				"Bones M",
+				"Roar (M)",
+				"Stink (M)"
+			],
+			location:"Lost Castle",
+			count:1
+		},
+		{
+			denizen:"Heavy Troll",
+			chits:[
+				"Stink C",
+				"Bones C",
+				"Roar (C)"
+			],
+			location:"Lost City",
+			count:1
+		},
+		{
+			denizen:"Tremendous Troll",
+			chits:[
+				"Stink C",
+				"Bones C",
+				"Roar (C)"
+			],
+			location:"Lost City",
+			count:1
+		},
+		{
+			denizen:"Tremendous Troll",
+			chits:[
+				"Vault"
+			],
+			location:"Treasure Locations",
+			count:1
+		},
+		{
+			denizen:"Lancers",
+			chits:[
+				"Chapel",
+				"Large Campfire",
+				"Small Campfire"
+			],
+			location:"Dwellings",
+			count:4
+		}
+	],
+	[
+		{
+			denizen:"Heavy Spider",
+			chits:[
+				"Stink M",
+				"Dank M",
+				"Patter (M)"
+			],
+			location:"Lost Castle",
+			count:1
+		},
+		{
+			denizen:"Heavy Spider",
+			chits:[
+				"Stink M",
+				"Dank M",
+				"Patter (M)"
+			],
+			location:"Lost Castle",
+			count:1
+		},
+		{
+			denizen:"Heavy Spider",
+			chits:[
+				"Stink M",
+				"Dank M",
+				"Patter (M)"
+			],
+			location:"Lost Castle",
+			count:1
+		},
+		{
+			denizen:"Tremendous Spider",
+			chits:[
+				"Cairns"
+			],
+			location:"Treasure Locations",
+			count:1
+		},
+		{
+			denizen:"Imp",
+			chits:[
+				"Statue"
+			],
+			location:"Treasure Locations",
+			count:1
+		},
+		{
+			denizen:"Bashkars",
+			chits:[
+				"Large Campfire",
+				"Small Campfire"
+			],
+			location:"Dwellings",
+			count:6
+		}
+	],
+	[
+		{
+			denizen:"Giant Bat",
+			chits:[
+				"Ruins M",
+				"Bones M",
+				"Flutter",
+				"Howl (M)"
+			],
+			location:"Lost Castle",
+			count:1
+		},
+		{
+			denizen:"Giant Bat",
+			chits:[
+				"Ruins M",
+				"Bones M",
+				"Flutter",
+				"Howl (M)"
+			],
+			location:"Lost Castle",
+			count:2
+		},
+		{
+			denizen:"Giant Bat",
+			chits:[
+				"Ruins M",
+				"Bones M",
+				"Flutter",
+				"Howl (M)"
+			],
+			location:"Lost Castle",
+			count:3
+		}
+		
+	]
+	
+]
