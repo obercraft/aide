@@ -38,8 +38,10 @@
 					</li>
 					
 					<li th:switch="${auth}">						
-						<a th:case="true" href="/aide/profile">Profile</a>
+						<a th:case="true" href="/aide#/profile">Profile</a>
+						<a th:case="false" href="/aide#/register">Register</a>
 					</li>
+										
 					<li><a href="/aide#/links">Links</a></li>
 					
 				</ul>
