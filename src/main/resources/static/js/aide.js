@@ -63,13 +63,16 @@ angular.module('aideDirective', ['aide', 'aideContant'])
 
 
 
-angular.module('aideApp', ['ngNewRouter', 'aideInit', 'aideApp.home', 'aideApp.prowling', 'aideApp.denizens', 'aideApp.denizen', 'aideApp.score', 'aideApp.links'])
+angular.module('aideApp', ['ngNewRouter', 'aideInit', 'aideApp.home', 'aideApp.login', 'aideApp.register', 'aideApp.prowling', 'aideApp.denizens', 'aideApp.denizen', 'aideApp.score', 'aideApp.links'])
   .controller('AppController', ['$router' ,'$http', '$scope', '$log', AppController]);
 
 function AppController($router, $http, $scope) {
 	$router.config([
 	      { path: '/',  redirectTo: '/home' },
 	      { path: '/home', component: 'home'},
+	      { path: '/login', component: 'login'},
+	      { path: '/register', component: 'register'},
+	      { path: '/profile', component: 'profile'},
 	      { path: '/prowling', component: 'prowling'},
 	      { path: '/denizen/:id', component: 'denizen' },
 	      { path: '/denizens', component: 'denizens' },
@@ -88,6 +91,19 @@ angular.module('aideApp.home', ['aideDirective', 'aideContant'])
 .controller('HomeController', ['$log', 'status', function ($log, status) {
 	this.breadcrumb = ["Home"];	
 	this.version = status.version;
+}]);
+
+angular.module('aideApp.login', ['aideDirective'])
+.controller('LoginController', ['$log', '$location', function ($log, $location) {
+	var  params = $location.search();
+	console.log(params)
+	this.error = params['error'] ? true:false;
+	this.breadcrumb = ["Login"];	
+}]);
+
+angular.module('aideApp.register', ['aideDirective'])
+.controller('RegisterController', ['$log', function ($log) {
+	this.breadcrumb = ["Register"];	
 }]);
 
 angular.module('aideApp.prowling', ['aideDirective'])

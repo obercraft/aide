@@ -33,7 +33,7 @@
 					<li><a href="/aide#/denizens">Denizens</a></li>
 					<li><a href="/aide#/score">Score</a></li>					
 					<li th:switch="${auth}">
-						<a th:case="false" href="/aide/login">Login</a>
+						<a th:case="false" href="/aide#/login">Login</a>
 						<a th:case="true" href="/aide/logout">Logout</a>
 					</li>
 					
