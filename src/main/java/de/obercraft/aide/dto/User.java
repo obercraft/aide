@@ -1,6 +1,7 @@
 package de.obercraft.aide.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -32,6 +33,15 @@ public class User implements Serializable {
     @Column(nullable = false)
     @JsonIgnore
     private String password;
+    
+    @JsonIgnore
+    private Date created;
+    
+    @JsonIgnore
+    private Date changed;
+    
+    @JsonIgnore
+    private Date lastLogin;
     
     @JsonIgnore
     @OneToMany(fetch = FetchType.EAGER, targetEntity = Authority.class, mappedBy = "user")
@@ -75,6 +85,30 @@ public class User implements Serializable {
 
 	public void setAuthorities(List<Authority> authorities) {
 		this.authorities = authorities;
+	}
+
+	public Date getCreated() {
+		return created;
+	}
+
+	public void setCreated(Date created) {
+		this.created = created;
+	}
+
+	public Date getChanged() {
+		return changed;
+	}
+
+	public void setChanged(Date changed) {
+		this.changed = changed;
+	}
+
+	public Date getLastLogin() {
+		return lastLogin;
+	}
+
+	public void setLastLogin(Date lastLogin) {
+		this.lastLogin = lastLogin;
 	}
 	
 	
