@@ -23,7 +23,7 @@ angular.module('aideDirective', ['aide', 'aideContant'])
 .directive('aideBreadcrumb', function() {
   return {
     restrict: 'E',
-    templateUrl: 'breadcrumb.html',
+    templateUrl: 'components/breadcrumb.html',
     scope: {
     	data: "="    	
     }
@@ -32,7 +32,7 @@ angular.module('aideDirective', ['aide', 'aideContant'])
 .directive('aideComments', function(aideService, status) {
   return {
     restrict: 'E',
-    templateUrl: 'comments.html',
+    templateUrl: 'components/comments.html',
     scope: {
     	subject: "="
     },
@@ -125,7 +125,7 @@ angular.module('aideDirective', ['aide', 'aideContant'])
 
 
 
-angular.module('aideApp', ['ngNewRouter', 'aideInit', 'aideApp.home', 'aideApp.login', 'aideApp.register', 'aideApp.prowling', 'aideApp.denizens', 'aideApp.denizen', 'aideApp.score', 'aideApp.links'])
+angular.module('aideApp', ['ngNewRouter', 'aideInit', 'aideApp.home', 'aideApp.login', 'aideApp.forgotten', 'aideApp.register', 'aideApp.prowling', 'aideApp.denizens', 'aideApp.denizen', 'aideApp.score', 'aideApp.links'])
   .controller('AppController', ['$router' ,'$http', '$scope', '$log', AppController]);
 
 function AppController($router, $http, $scope) {
@@ -134,6 +134,7 @@ function AppController($router, $http, $scope) {
 	      { path: '/home', component: 'home'},
 	      { path: '/login', component: 'login'},
 	      { path: '/register', component: 'register'},
+	      { path: '/forgotten', component: 'forgotten'},
 	      { path: '/profile', component: 'profile'},
 	      { path: '/prowling', component: 'prowling'},
 	      { path: '/denizen/:id', component: 'denizen' },
@@ -166,6 +167,11 @@ angular.module('aideApp.login', ['aideDirective'])
 angular.module('aideApp.register', ['aideDirective'])
 .controller('RegisterController', ['$log', function ($log) {
 	this.breadcrumb = ["Register"];	
+}]);
+
+angular.module('aideApp.forgotten', ['aideDirective'])
+.controller('ForgottenController', ['$log', function ($log) {
+	this.breadcrumb = ["Forgotten Password"];	
 }]);
 
 angular.module('aideApp.prowling', ['aideDirective'])

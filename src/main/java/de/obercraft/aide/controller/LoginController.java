@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import de.obercraft.aide.component.AuthorityRepository;
+import de.obercraft.aide.component.ForgottenPasswordComponent;
 import de.obercraft.aide.component.UserRepository;
 import de.obercraft.aide.dto.Authority;
+import de.obercraft.aide.dto.ForgottenPassword;
 import de.obercraft.aide.dto.Register;
 import de.obercraft.aide.dto.User;
 
@@ -38,6 +40,9 @@ public class LoginController {
 
 	@Resource
 	private UserRepository UserRepository;
+	
+	@Resource
+	private ForgottenPasswordComponent forgottenPasswordComponent;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String getIndex(Model model,
@@ -77,4 +82,18 @@ public class LoginController {
 		return "registerSuccess";
 	}
 
+	@RequestMapping(value = "forgotten", method = RequestMethod.GET)
+	public String getForgotten(@RequestParam(value="user", required = true) String username,@RequestParam(value="key", required = true) String key) throws Exception {
+		if (forgottenPasswordComponent.checkForgottenPassword(username, key)) {
+			return "registerSuccess";
+		}
+		return "register";
+	}
+	
+	@RequestMapping(value = "forgotten", method = RequestMethod.POST)
+	public String postForgotten(@RequestParam(value="email", required = true) String email) throws Exception {
+		forgottenPasswordComponent.createForgottenPassword(email);
+		return "registerSuccess";
+	}
+	
 }
