@@ -1,44 +1,75 @@
 <aide-breadcrumb data="register.breadcrumb"></aide-breadcrumb>
 
-<form class="form-horizontal" action="/aide/login/register" method="post">
+<form class="form-horizontal" action="/aide/login/register"
+	name="registerForm" method="post">
 
 	<div class="form-group">
 		<label for="username" class="col-sm-2 control-label">Email</label>
 		<div class="col-sm-10">
-			<input type="email" class="form-control" name="email"
-				id="email" placeholder="email">
+			<input type="email" class="form-control" name="email" id="email"
+				email-exists ng-model="email" placeholder="email" ng-required="true">
+			<div class="error">
+				<div
+					ng-show="registerForm.email.$error.email || registerForm.email.$error.required">
+					Please insert a valid email like <i>me@somewhere.com</i>
+				</div>
+				<div ng-show="registerForm.email.$error.emailExists">this
+					email already exists, please choose another one</div>
+
+			</div>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="password" class="col-sm-2 control-label">Password</label>
 		<div class="col-sm-10">
-			<input type="password" class="form-control" id="password" name="password"
-				password" placeholder="password">
+			<input type="password" class="form-control" id="password"
+				ng-model="password" ng-minlength="8" name="password"
+				password" placeholder="password" ng-required="true">
+			<div class="error">
+				<div
+					ng-show="registerForm.password.$error.minlength || registerForm.password.$error.required">Please
+					insert a password, minimum length is 8 characters</div>
+			</div>
 		</div>
 	</div>
-	
-		<div class="form-group">
-		<label for="passwordRepeat" class="col-sm-2 control-label">Repeat password</label>
+
+	<div class="form-group">
+		<label for="passwordRepeat" class="col-sm-2 control-label">Repeat
+			password</label>
 		<div class="col-sm-10">
 			<input type="password" class="form-control" id="passwordRepeat"
-				password" placeholder="repeat password">
+				password-repeat ng-model="passwordRepeat" name="passwordRepeat"
+				placeholder="repeat password" ng-required="true">
+			<div class="error">
+				<div
+					ng-show="registerForm.passwordRepeat.$error.passwordRepeat || registerForm.passwordRepeat.$error.required">Please
+					repeat your password</div>
+			</div>
 		</div>
 	</div>
-	
-	
-		<div class="form-group">
+
+	<div class="form-group">
 		<label for="username" class="col-sm-2 control-label">Nickname</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" name="name"
-				id="username" placeholder="Nickname">
+			<input type="text" class="form-control" name="name" id="name"
+				ng-minlength="4" username-exists ng-required="true" ng-model="name"
+				placeholder="Nickname">
+			<div class="error">
+				<div
+					ng-show="registerForm.name.$error.required || registerForm.name.$error.minlength">Please
+					insert a nickname, minimum length is 4 characters</div>
+				<div ng-show="registerForm.name.$error.usernameExists">this
+					username already exists, please choose another one</div>
+			</div>
+
 		</div>
 	</div>
-	
-	
+
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-10">
-			<button type="submit" class="btn btn-default">Done</button>
+			<button type="submit" class="btn btn-default"
+				ng-disabled="registerForm.$invalid">Done</button>
 		</div>
 	</div>
 </form>

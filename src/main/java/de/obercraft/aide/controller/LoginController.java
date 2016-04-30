@@ -62,6 +62,7 @@ public class LoginController {
 		PasswordEncoder encoder = new BCryptPasswordEncoder();
 		User user = new User();
 		user.setEmail(register.getEmail());
+		System.out.println("XXX=" + register.getPassword());
 		user.setPassword(encoder.encode(register.getPassword()));
 		user.setCreated(new Date());
 		user.setName(register.getName());

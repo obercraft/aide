@@ -6,7 +6,15 @@ angular.module('aide', [])
 	  
 	  this.postComment = function (comment) {
 	      	return $http.post('/rest/comments', comment);
-	  };	  
+	  };
+	  
+	  this.checkUsername = function (username) {
+	      	return $http.post('/rest/username', username);
+	  };
+	  
+	  this.checkEmail = function (email) {
+	      	return $http.post('/rest/email', email);
+	  };
 });
 
 angular.module('aideDirective', ['aide', 'aideContant'])
@@ -59,7 +67,61 @@ angular.module('aideDirective', ['aide', 'aideContant'])
     }
   };	
 })
+.directive('passwordRepeat', function() {
+	return {
+		require: 'ngModel',
+		link: function (scope, element, attrs, ctrl) {    	
+			ctrl.$parsers.push(function (value) {
+				ctrl.$setValidity('passwordRepeat', value === scope.password);
+				return value;
+			});
+    	}
+	};
+})
+.directive('emailExists', function(aideService) {
+	return {
+		require: 'ngModel',
+		link: function (scope, element, attrs, ctrl) {    	
+			ctrl.$parsers.push(function (value) {    		
+    			ctrl.$setValidity('emailExists', false);
+    			aideService.checkEmail(value).then(
+    				function(result) {
+    					ctrl.$setValidity('emailExists', result.data === false);
+    				},
+    				function(error) {
+    					console.log(error);
+    				}
+    			);
+    			return value;
+    			
+    		});    		
+    	}
+	};
+})
+
+.directive('usernameExists', function(aideService) {
+	return {
+		require: 'ngModel',
+		link: function (scope, element, attrs, ctrl) {    	
+			ctrl.$parsers.push(function (value) {
+    			ctrl.$setValidity('usernameExists', false);
+    			aideService.checkUsername(value).then(
+    				function(result) {
+    					ctrl.$setValidity('usernameExists', result.data === false);
+    				},
+    				function(error) {
+    					console.log(error);
+    				}
+    			);
+    			return value;    			
+    		});
+    		
+    	}
+	};
+})
+
 ;
+
 
 
 
